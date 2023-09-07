@@ -1,29 +1,36 @@
 
-const title = document.getElementById("Title");
+const list = document.querySelector(".list-group");
 
-title.innerHTML = "My Title";
+console.log(list.parentElement);
+
+console.log(list.lastElementChild);
+
+list.lastElementChild.style.color = "red";
+
+console.log(list.lastChild);
+
+console.log(list.firstElementChild);
+
+const newDiv = document.createElement('div');
+
+// console.log(newDiv);
+
+newDiv.setAttribute('title' , 'hello');
+
+const textNode = document.createTextNode("HEllo");
+const textNode1 = document.createTextNode("HEllo");
+newDiv.appendChild(textNode);
+console.log(newDiv);
+
+const container = document.querySelector(".container");
+const topele = document.querySelector("#header-title");
+
+container.insertBefore(newDiv , topele);
 
 
-const header = document.getElementById("header");
+const newDiv1 = document.createElement('div');
+newDiv1.className = "list-group-item";
+newDiv1.appendChild(textNode1);
+const topitem = list.firstElementChild;
 
-header.style.border = "2px solid red";
-
-
-const Listitem = document.querySelector("#ListItem");
-
-Listitem.children[0].style.color = "red";
-// Listitem.children[2].style.backgroundColor = "green";
-
-Listitem.style.fontWeight = "bold";
-
-const item = document.querySelectorAll(".Litem");
-
-item[1].style.backgroundColor = "green";
-item[2].style.display = "none";
-
-const fruit = document.querySelectorAll("li:nth-child(odd)");
-
-for (let i = 0; i < fruit.length;i++){
-    fruit[i].style.color = "orange";
-}
-
+list.insertBefore(newDiv1 , topitem);
