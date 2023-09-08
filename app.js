@@ -14,8 +14,8 @@ function storeToLocalStorage(e){
 
 
     let myObj = {
-        name: "userName" , 
-        password = pass
+        name: userName , 
+        password : pass
     };
 
     let myObj_serialized = JSON.stringify(myObj);
