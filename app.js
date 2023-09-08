@@ -12,8 +12,17 @@ function storeToLocalStorage(e){
 
     const pass = document.getElementById('pass').value;
 
-    
-    localStorage.setItem(userName , pass);
+
+    let myObj = {
+        name: "userName" , 
+        password = pass
+    };
+
+    let myObj_serialized = JSON.stringify(myObj);
+
+    localStorage.setItem("myObj" , myObj_serialized);
+
+    let myObj_deserialized = JSON.parse(localStorage.getItem("myObj"));
 
 }
 
