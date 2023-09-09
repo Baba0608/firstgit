@@ -20,7 +20,7 @@ function storeToLocalStorage(e){
 
     let myObj_serialized = JSON.stringify(myObj);
 
-    localStorage.setItem("myObj" , myObj_serialized);
+    localStorage.setItem(userName , myObj_serialized);
 
     let myObj_deserialized = JSON.parse(localStorage.getItem("myObj"));
 
