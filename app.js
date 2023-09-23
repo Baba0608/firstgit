@@ -24,7 +24,7 @@ function addToCurdCurd(e) {
 
     axios
       .post(
-        "https://crudcrud.com/api/523cc2a67c7448ec86e591d6bda586f9/appointmentData",
+        "https://crudcrud.com/api/c633611a70054acfb114621448d8fa86/appointmentData",
         obj
       )
       .then((res) => {
@@ -66,7 +66,7 @@ function addToCurdCurd(e) {
 function display() {
   axios
     .get(
-      "https://crudcrud.com/api/523cc2a67c7448ec86e591d6bda586f9/appointmentData"
+      "https://crudcrud.com/api/c633611a70054acfb114621448d8fa86/appointmentData"
     )
     .then((res) => {
       res.data.forEach((objEl) => {
@@ -99,22 +99,6 @@ function display() {
 }
 
 display();
-// -------------------------------------------------------------------------------------
-function emptyData(arr) {
-  for (let i = 0; i < arr.length; i++) {
-    axios
-      .delete(
-        `https://crudcrud.com/api/523cc2a67c7448ec86e591d6bda586f9/appointmentData/${arr[i]}`
-      )
-      .then((res) => console.log("deleted"))
-      .catch((err) => console.error(err));
-  }
-}
-
-arr = [""];
-
-// emptyData(arr);
-
 // ------------------------------------------------------------------------------------------
 
 // adding event to delete data from webpage as well as from crudcrud
@@ -132,7 +116,7 @@ function deleteFromCrud(e) {
 
     axios
       .delete(
-        `https://crudcrud.com/api/523cc2a67c7448ec86e591d6bda586f9/appointmentData/${id}`
+        `https://crudcrud.com/api/c633611a70054acfb114621448d8fa86/appointmentData/${id}`
       )
       .then((res) => console.log("deleted"))
       .catch((err) => console.error(err));
