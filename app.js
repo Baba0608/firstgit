@@ -9,6 +9,10 @@ submit.addEventListener("click", addToCurdCurd);
 function addToCurdCurd(e) {
   e.preventDefault();
 
+  const msg = document.getElementById("msg");
+
+  msg.textContent = "";
+
   submit.disabled = true;
 
   const userName = document.getElementById("userName");
@@ -74,25 +78,23 @@ function display() {
         const li = document.createElement("li");
         const para = document.createElement("p");
         const deleteBtn = document.createElement("button");
-
         const editBtn = document.createElement("button");
 
+        // class
         deleteBtn.className = "deleteBtn";
         editBtn.className = "edit";
+        // text content
         editBtn.textContent = "Edit";
-
         deleteBtn.textContent = "X";
-
         span.textContent = objEl._id;
-
         para.textContent =
           objEl.username + " - " + objEl.mail + " - " + objEl.mobile;
 
+        // append
         li.appendChild(span);
         li.appendChild(para);
         li.appendChild(deleteBtn);
         li.appendChild(editBtn);
-
         list.appendChild(li);
       });
     });
@@ -124,3 +126,27 @@ function deleteFromCrud(e) {
 }
 
 // -----------------------------------------------------------------------------------------------
+
+// Adding event to edit button
+list.addEventListener("click", editDetails);
+
+function editDetails(e) {
+  if (e.target.classList.contains("edit")) {
+    // console.log("edit button clicked");
+    const msg = document.getElementById("msg");
+    msg.textContent = "Please enter correct details";
+
+    const id = e.target.parentElement.firstChild.textContent;
+
+    const ele = e.target.parentElement;
+
+    axios
+      .delete(
+        `https://crudcrud.com/api/c633611a70054acfb114621448d8fa86/appointmentData/${id}`
+      )
+      .then((res) => console.log("editing details"))
+      .catch((err) => console.error(err));
+
+    list.removeChild(ele);
+  }
+}
